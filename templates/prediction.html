@@ -1,0 +1,61 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head><title> Prediction</title>
+</head>
+<body>
+<p><h1> The predicted prices for the next 5 work days: </h1></p>
+<br></br>
+<div>
+
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,td{
+padding:5px
+}
+td{
+text-align:center
+}
+table{
+border-spacing:2px}
+
+</style>
+
+
+<table style="width:100%">
+<caption>{{stock}} : {{detail[1]}}</caption>
+<TR>
+<TH> <SPAN>Day</SPAN></TH>
+<TH>Open</TH>
+<TH>High</TH>
+<TH>Low</TH>
+<TH>Close</TH>
+<TH>Adj.Close</TH>
+<TH>Volume</TH>
+<TR></TR>
+{% for item in predictions %}
+<TR>
+<TH>Next {{loop.index}} day</TH>
+{% for price in item %}
+   <TD class="Next day">{{price}}</TD>
+ {% endfor %}
+</TR>
+<TR></TR>
+{% endfor %}
+</table>
+</div>
+
+<div>
+<h5>Sector: {{detail[7]}}</h5></div>
+<div><h5>Industry: {{detail[6]}}</h5></div>
+<div><h5>Market cap: {{ detail[3]}}</h5></div>
+<div> <a href={{detail[8]}}/>{{detail[8]}}</div>
+
+
+</body>
+</html>
+
+
+

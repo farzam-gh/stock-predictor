@@ -1,0 +1,70 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head><title> Stock-predictor</title>
+</head>
+<body>
+<br>
+<center><p><h1>Welcome To Stock Predictor </h1></p></center>
+
+<br>
+<style>
+td{
+padding:5px
+}
+tr{ height:15px}
+input[type=text] {
+    width: 30%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    border: 1px solid black;
+    border-radius: 4px;
+</style>
+
+<br>
+<form method="POST" action="/prediction">
+<table style="width:100%">
+<TR>
+    <TD align="center"><b>Enter NASDAQ Company Symbol: </b></TD>
+</TR>
+<TR>
+    <TD align="center"><b>(e.x.  AMZN)</b></TD>
+</TR>
+<TR>
+    <TD align="center"> <input type="TEXT" , name="stock" maxlength="8" size="8"></TD>
+</TR>
+<TR>
+    <TD align="center"><input type="submit", value="Predict" ,name="submit" style="font: bold"></TD>
+</TR>
+</form>
+{% if error|length >1 %}
+<TR></TR>
+<TR>
+    <TD align="center" colspan="2"><h5 style="color:Tomato;"> {{error[0]}} , {{error[1]}}<a href={{error[2]}}>  here </a> </h5></TD>
+</TR>
+{% for i in range(12) %}
+    <TR></TR>
+    {% endfor %}
+{% else %}
+{% for i in range(14) %}
+    <TR></TR>
+    {% endfor %}
+{% endif %}
+
+<TR>
+    <TD align="center" style="color:#CF6115"><b>Caution: </b>This Tool is made for training and academic purposes and <b>may not </b>be used for real world trading and it will be on your own risk.</TD>
+</TR>
+<TR>
+<center></center><TD align="center"><a href='/about'>about</a></TD></center>
+</TR>
+</table>
+
+
+</body>
+</html>
+
+
+<!---->
+
+
+
+
